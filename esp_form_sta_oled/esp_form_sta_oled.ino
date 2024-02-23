@@ -1,5 +1,9 @@
 /*********
  * OLED WEBSERVER
+ * could be used to make a custom tamagochi
+ * somtehing to write outside
+ * a wearable logo maybe ?
+ * how much does it consume ?
 *********/
 
 #include <Arduino.h>
