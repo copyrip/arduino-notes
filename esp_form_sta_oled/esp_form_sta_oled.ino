@@ -18,6 +18,8 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
+#include <Fonts/FreeSerif12pt7b.h>
+
 // SCL GPIO5
 // SDA GPIO4
 #define OLED_RESET 0  // GPIO0
@@ -242,14 +244,14 @@ void loop() {
   float yourInputFloat = readFile(SPIFFS, "/inputFloat.txt").toFloat();
   Serial.print("*** Your inputFloat: ");
   Serial.println(yourInputFloat);
-  delay(100);
+  delay(10);
 
   yourInputString ? displayText(yourInputString) : displayText("...");
-  delay(200);
+  delay(10);
   display.clearDisplay();
   
   dice();
-  delay(200);
+  delay(10);
   display.clearDisplay();
 /*
   display.setTextSize(4);
@@ -275,8 +277,9 @@ void loop() {
  
 }
 void dice(void){
+  display.setFont(&FreeSerif12pt7b);
   int num = random(1,21);
-  display.setTextSize(5);
+  //display.setTextSize(5);
   display.setCursor(0,0);
   display.setTextColor(WHITE);
   display.println(num);
@@ -284,7 +287,7 @@ void dice(void){
 }
 
 void displayText(String text){
-  display.setTextSize(1);
+  //display.setTextSize(1);
   display.setTextColor(WHITE);
   display.setCursor(0,0);
   display.clearDisplay();
